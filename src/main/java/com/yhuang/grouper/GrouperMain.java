@@ -20,8 +20,8 @@ public class GrouperMain {
         List<DateValue> rows  = new ArrayList<>();
 
         try {
-/*            
-            //For Debug
+/*
+            //For debug convenience
             String fileName = "input_file";
             System.setIn(new FileInputStream(fileName));
 */
@@ -77,12 +77,57 @@ public class GrouperMain {
 
     }
 
+    public static void printUsage() {
+        System.out.println("Usage:");
+        System.out.println("./grouper.sh y m d < input_file");
+        System.out.println("./grouper.sh y m  < input_file");
+        System.out.println("./grouper.sh y  < input_file");
+        System.out.println("./grouper.sh < input_file");
+
+        System.out.println("./grouper.sh y m d");
+        System.out.println("./grouper.sh y m");
+        System.out.println("./grouper.sh y");
+
+        System.out.println("./grouper.sh");
+
+        System.out.println("./grouper.sh h");
+        System.exit(0);
+    }
+
+    // only allow 'y', 'm', 'd'
+    enum Arguments {
+        y, m, d;
+        public static boolean contains(String s)
+        {
+            for(Arguments Arguments:values())
+                if (Arguments.name().equals(s))
+                    return true;
+            return false;
+        }
+    };
+
+    public static void validateArguments(String[] args) {
+        if (args.length > 0) {
+            if(args[0].equalsIgnoreCase("h")) {
+                printUsage();
+            }
+            for (String arg : args) {
+                if (!Arguments.contains(arg)) {
+                    System.out.println("\nWrong input argument: " + arg + "\n");
+                    printUsage();
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         // y m d < file
         // y m   < file
         // y     < file
         //       < file
         //
+        validateArguments(args);
+
         // scan input
         //     2016 2 1 123
         //     2016 3 1 200

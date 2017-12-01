@@ -45,6 +45,9 @@ public class Grouper {
      *        Now we use a pair list to store instance of signedColumn + value
      *
      *  this method iterates the rows and merge same signed_columns rows to accumulate its value
+     *   
+     *  This method will return a list of Entry<String, Integer>, 
+     *         here the String is a sign, Integer is the total value 
      *
      * @param pairList
      * @param coloums

@@ -11,7 +11,6 @@ So the diagram is:
 
 ## Implementation
  1. code in Java 8 and maven
- 2. TODO: input value validation
 
 ## build step: (on MacOS)
 

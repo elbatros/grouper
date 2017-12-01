@@ -20,10 +20,11 @@ public class GrouperMain {
         List<DateValue> rows  = new ArrayList<>();
 
         try {
+/*            
             //For Debug
             String fileName = "input_file";
             System.setIn(new FileInputStream(fileName));
-
+*/
             BufferedReader bufReader = new BufferedReader(new InputStreamReader(System.in));
 
             // skip header row

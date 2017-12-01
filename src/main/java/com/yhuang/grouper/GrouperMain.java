@@ -52,7 +52,8 @@ public class GrouperMain {
                 DateValue dataValue = new DateValue(y, m, d, value);
                 rows.add(dataValue);
             }
-
+        } catch (NumberFormatException e) {
+            System.out.println("Wrong input value, it should be integer");
         } catch (Exception e) {
             e.printStackTrace();
         }

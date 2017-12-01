@@ -29,7 +29,7 @@ $cd target
 $cp ../src/main/resources/bin/grouper.sh .
 $cp ../src/test/resources/input_file .
 
-## test 1 by redirection console to a file from directory
+## test 1: by redirection console to a file from directory
 $./grouper.sh y m d < input_file
 2016	3	28	100
 2016	3	29	123
@@ -56,7 +56,7 @@ Grouped by: y m d
  2016			323
 			323
 
-## test 1 by input from console (please input header row first)
+## test 2: by input from console (please input header row first)
 WTL-EN-EEG8WL:target yhuang$ ./grouper.sh y m d
 y m d value
 2016	3       20	50
